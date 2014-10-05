@@ -37,7 +37,7 @@ Lage.getLatitude();
 If you don't like the way I did things, you have lots of options. Both lage.js and lage-server (also very small) are fully open-sourced under MIT, so feel free to take a look at those and make them do what you'd like. Not only that, but you can write a client in a language of your choosing by simply making a call to the web api:
 
 ```
-http://lage-server.herokuapp.com/lookip?ip=0.0.0.0
+http://lage-server.herokuapp.com/lookup?ip=0.0.0.0
 >> returns a json object with all of the info above
 ```
 
