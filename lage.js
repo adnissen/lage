@@ -1,34 +1,36 @@
 function Lage(ip){
   request = new XMLHttpRequest();
   request.open('GET', 'http://lage-server.herokuapp.com/lookup?ip=' + ip, true);
-
+  loc = {};
   request.onload = function() {
     if (request.status >= 200 && request.status < 400){
       // Success!
-      var loc = JSON.parse(request.responseText);
+      loc = JSON.parse(request.responseText);
     }
   };
-
+  this.getLoc = function(){
+    return loc;
+  }
   request.send();
 }
 Lage.prototype.getFullAddress = function(){
-  return loc.address;
+  return this.getLoc().address;
 };
 Lage.prototype.getCity = function(){
-  return loc.city;
+  return this.getLoc().city;
 };
 Lage.prototype.getZip = function(){
-  return loc.zip;
+  return this.getLoc().zip;
 };
 Lage.prototype.getCountry = function(){
-  return loc.country;
+  return this.getLoc().country;
 };
 Lage.prototype.getState = function(){
-  return loc.state;
+  return this.getLoc().state;
 };
-Lage.prototype.getLat = function(){
-  return loc.lat;
+Lage.prototype.getLatitude= function(){
+  return this.getLoc().lat;
 };
-Lage.prototype.getLong = function(){
-  return loc.lng;
+Lage.prototype.getLongitude = function(){
+  return this.getLoc().lng;
 };
